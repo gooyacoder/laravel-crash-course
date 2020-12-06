@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 	
-    // return view('welcome');
+     return view('welcome');
 
-    try{
-    	DB::connection()->getPdo();
-    	echo "Database Connection Successful!";
-    }catch(\Exception $e){
-    	die("Database Connection Failed! " . $e);
-    }
+    // try{
+    // 	DB::connection()->getPdo();
+    	
+    // 	echo "Database Connection Successful!";
+    // }catch(\Exception $e){
+    // 	die("Database Connection Failed! " . $e);
+    // }
 });
+
+Route::get('test1', [TestController::class, 'test1']);
 
 
