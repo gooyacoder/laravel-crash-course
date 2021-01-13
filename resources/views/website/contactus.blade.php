@@ -23,7 +23,7 @@
   @endforeach
 
    <li class="nav-item">
-      <a class="nav-link" href="/contact-us">Contact Us</a>
+      <a class="nav-link" href="/page/contact-us">Contact Us</a>
     </li>
 
   </ul>
@@ -31,7 +31,27 @@
 </nav> 
 
 <div class="container">
-	<p>{{ $pageDetails->description }}</p>
+
+      <div class="col-5 mx-auto">
+        <form action="/contact-us/sendmessage" method="post" class="needs-validation">
+          @csrf
+          <div class="form-group p-2">
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" placeholder="Please enter your name" name="name" required>
+          </div>
+          <div class="form-group p-2">
+              <label for="email">Email address:</label>
+              <input type="email" class="form-control" placeholder="Please enter your email" name="email" required>
+          </div>
+               <div class="form-group p-2">
+              <label for="message">Message:</label>
+              <textarea placeholder="Please enter your message here" rows="8" class="form-control" name="message" required></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary m-2">Submit</button>
+        </form> 
+      </div>
+
 </div>
 
 </body>
